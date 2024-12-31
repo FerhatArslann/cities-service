@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CityModel {
+  id: String!
+  name: String!
+  country_code: String!
+}
+
+type LocationModel {
+  id: String!
+  name: String!
+  description: String!
+  streetAddress: String!
+}
+
+type Query {
+  getCities: [CityModel!]!
+  getLocations: [LocationModel!]!
+  getLocationOfACity(city: String!): LocationModel!
+}
+
+type Mutation {
+  createCity(createCityInput: CreateCityDto!): CityModel!
+  createLocation(city: String!, createLocationInput: CreateLocationDto!): LocationModel!
+}
+
+input CreateCityDto {
+  name: String!
+  country_code: String!
+}
+
+input CreateLocationDto {
+  name: String!
+  description: String!
+  streetAddress: String!
+}
