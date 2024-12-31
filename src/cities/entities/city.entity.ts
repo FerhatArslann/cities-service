@@ -12,6 +12,6 @@ export class City {
   @Column()
   country_code: string;
 
-  @OneToMany(() => Location, (location) => location.name, { nullable: true, cascade: true })
-  locations: [Location];
+  @OneToMany(() => Location, (location) => location.city, { nullable: true, cascade: true })
+  locations: Location[];
 }

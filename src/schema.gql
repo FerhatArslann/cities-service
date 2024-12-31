@@ -2,33 +2,43 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type CityModel {
-  id: String!
-  name: String!
-  country_code: String!
-}
-
 type LocationModel {
   id: String!
   name: String!
   description: String!
   streetAddress: String!
+  city: CityModel
+}
+
+type CityModel {
+  id: String!
+  name: String!
+  country_code: String!
+  locations: [LocationModel!]
 }
 
 type Query {
   getCities: [CityModel!]!
+  getCity(id: String!): CityModel
   getLocations: [LocationModel!]!
   getLocationOfACity(city: String!): LocationModel!
 }
 
 type Mutation {
   createCity(createCityInput: CreateCityDto!): CityModel!
+  updateCity(id: String!, updateCityInput: UpdateCityDto!): CityModel!
+  deleteCity(id: String!): Boolean!
   createLocation(city: String!, createLocationInput: CreateLocationDto!): LocationModel!
 }
 
 input CreateCityDto {
   name: String!
   country_code: String!
+}
+
+input UpdateCityDto {
+  name: String
+  country_code: String
 }
 
 input CreateLocationDto {

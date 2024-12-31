@@ -1,13 +1,17 @@
-import { Field, ObjectType } from "@nestjs/graphql";
+import { Field, ObjectType } from '@nestjs/graphql';
+import { LocationModel } from '../../locations/models/location.model';
 
 @ObjectType()
 export class CityModel {
-  @Field()
+  @Field(() => String)
   id: string;
 
-  @Field()
+  @Field(() => String)
   name: string;
 
-  @Field()
+  @Field(() => String)
   country_code: string;
+
+  @Field(() => [LocationModel], { nullable: true })
+  locations?: LocationModel[];
 }

@@ -14,8 +14,9 @@ export class LocationsResolver {
     }
 
     @Query(() => LocationModel)
-    async getLocationOfACity(@Args('city') city: string): Promise<LocationModel[]> {
-        return await this.locationsService.findLocationsOfACity(city) as LocationModel[];
+    async getLocationOfACity(@Args('city') city: string): Promise<LocationModel> {
+        const locations = await this.locationsService.findLocationsOfACity(city);
+        return locations[0] as LocationModel;
     }
 
     @Mutation(() => LocationModel)
