@@ -145,6 +145,7 @@ docker-compose up --build
 	When prompted, enter your password (default: `password`).
 
 #### Example MySQL commands:
+
 ```sql
 USE cities_db;
 SHOW TABLES;
